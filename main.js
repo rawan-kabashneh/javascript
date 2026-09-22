@@ -102,16 +102,7 @@ const students = [
     ];
     
 
-// var result=" ";
-//      for(var index=0;index<students.length;index++)
-//         {
-//               result+=`<tr>
-//               <td>${students[index].id}</td>
-//               <td>${students[index].name}</td>
-//               <td>${students[index].email}</td>
-//               <td>${students[index].points}</td>
-//               </tr>`
-//         }
+
 
         const result=students.map(function(students)
         {
