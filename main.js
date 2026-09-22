@@ -1,0 +1,126 @@
+const students = [
+        { id: 1, name: "Ahmad Ali", email: "ahmad.ali@example.com", points: 85 },
+        { id: 2, name: "Sara Khaled", email: "sara.khaled@example.com", points: 92 },
+        { id: 3, name: "Omar Hassan", email: "omar.hassan@example.com", points: 76 },
+        { id: 4, name: "Lina Ahmad", email: "lina.ahmad@example.com", points: 88 },
+        { id: 5, name: "Yousef Sami", email: "yousef.sami@example.com", points: 95 },
+        { id: 6, name: "Maya Nasser", email: "maya.nasser@example.com", points: 81 },
+        { id: 7, name: "Adam Saleh", email: "adam.saleh@example.com", points: 73 },
+        { id: 8, name: "Dana Mahmoud", email: "dana.mahmoud@example.com", points: 90 },
+        { id: 9, name: "Khaled Omar", email: "khaled.omar@example.com", points: 67 },
+        { id: 10, name: "Noor Samir", email: "noor.samir@example.com", points: 84 },
+        { id: 11, name: "Mohammad Tareq", email: "mohammad.tareq@example.com", points: 79 },
+        { id: 12, name: "Rama Ahmad", email: "rama.ahmad@example.com", points: 93 },
+        { id: 13, name: "Laith Hasan", email: "laith.hasan@example.com", points: 71 },
+        { id: 14, name: "Jana Khalil", email: "jana.khalil@example.com", points: 87 },
+        { id: 15, name: "Zaid Ali", email: "zaid.ali@example.com", points: 96 },
+        { id: 16, name: "Hala Sami", email: "hala.sami@example.com", points: 82 },
+        { id: 17, name: "Fadi Nasser", email: "fadi.nasser@example.com", points: 69 },
+        { id: 18, name: "Leen Omar", email: "leen.omar@example.com", points: 91 },
+        { id: 19, name: "Tamer Hassan", email: "tamer.hassan@example.com", points: 74 },
+        { id: 20, name: "Aya Saleh", email: "aya.saleh@example.com", points: 89 },
+        { id: 21, name: "Anas Mahmoud", email: "anas.mahmoud@example.com", points: 77 },
+        { id: 22, name: "Malak Samir", email: "malak.samir@example.com", points: 94 },
+        { id: 23, name: "Bashar Khaled", email: "bashar.khaled@example.com", points: 68 },
+        { id: 24, name: "Reem Ahmad", email: "reem.ahmad@example.com", points: 86 },
+        { id: 25, name: "Samer Ali", email: "samer.ali@example.com", points: 80 },
+        { id: 26, name: "Nour Hassan", email: "nour.hassan@example.com", points: 97 },
+        { id: 27, name: "Ibrahim Saleh", email: "ibrahim.saleh@example.com", points: 72 },
+        { id: 28, name: "Saja Nasser", email: "saja.nasser@example.com", points: 88 },
+        { id: 29, name: "Hamza Omar", email: "hamza.omar@example.com", points: 83 },
+        { id: 30, name: "Farah Khalil", email: "farah.khalil@example.com", points: 91 },
+        { id: 31, name: "Yazan Ahmad", email: "yazan.ahmad@example.com", points: 75 },
+        { id: 32, name: "Razan Sami", email: "razan.sami@example.com", points: 89 },
+        { id: 33, name: "Mahmoud Ali", email: "mahmoud.ali@example.com", points: 78 },
+        { id: 34, name: "Jouri Hassan", email: "jouri.hassan@example.com", points: 93 },
+        { id: 35, name: "Alaa Saleh", email: "alaa.saleh@example.com", points: 70 },
+        { id: 36, name: "Rayan Khaled", email: "rayan.khaled@example.com", points: 85 },
+        { id: 37, name: "Mariam Omar", email: "mariam.omar@example.com", points: 96 },
+        { id: 38, name: "Ameer Nasser", email: "ameer.nasser@example.com", points: 81 },
+        { id: 39, name: "Salma Ahmad", email: "salma.ahmad@example.com", points: 87 },
+        { id: 40, name: "Eyad Hassan", email: "eyad.hassan@example.com", points: 73 },
+        { id: 41, name: "Razan Ali", email: "razan.ali@example.com", points: 92 },
+        { id: 42, name: "Kareem Sami", email: "kareem.sami@example.com", points: 79 },
+        { id: 43, name: "Lama Khalil", email: "lama.khalil@example.com", points: 88 },
+        { id: 44, name: "Bilal Omar", email: "bilal.omar@example.com", points: 66 },
+        { id: 45, name: "Sally Ahmad", email: "sally.ahmad@example.com", points: 90 },
+        { id: 46, name: "Wael Nasser", email: "wael.nasser@example.com", points: 84 },
+        { id: 47, name: "Dima Hassan", email: "dima.hassan@example.com", points: 95 },
+        { id: 48, name: "Fares Saleh", email: "fares.saleh@example.com", points: 76 },
+        { id: 49, name: "Layan Khaled", email: "layan.khaled@example.com", points: 89 },
+        { id: 50, name: "Ayman Ali", email: "ayman.ali@example.com", points: 82 },
+        { id: 51, name: "Hanin Omar", email: "hanin.omar@example.com", points: 94 },
+        { id: 52, name: "Nidal Ahmad", email: "nidal.ahmad@example.com", points: 71 },
+        { id: 53, name: "Rana Hassan", email: "rana.hassan@example.com", points: 86 },
+        { id: 54, name: "Majd Saleh", email: "majd.saleh@example.com", points: 80 },
+        { id: 55, name: "Shahd Khalil", email: "shahd.khalil@example.com", points: 91 },
+        { id: 56, name: "Tareq Sami", email: "tareq.sami@example.com", points: 77 },
+        { id: 57, name: "Hussein Ali", email: "hussein.ali@example.com", points: 83 },
+        { id: 58, name: "Rima Nasser", email: "rima.nasser@example.com", points: 98 },
+        { id: 59, name: "Osama Ahmad", email: "osama.ahmad@example.com", points: 74 },
+        { id: 60, name: "Mona Hassan", email: "mona.hassan@example.com", points: 87 },
+        { id: 61, name: "Saeed Omar", email: "saeed.omar@example.com", points: 69 },
+        { id: 62, name: "Tasneem Ali", email: "tasneem.ali@example.com", points: 93 },
+        { id: 63, name: "Murad Khaled", email: "murad.khaled@example.com", points: 81 },
+        { id: 64, name: "Esraa Saleh", email: "esraa.saleh@example.com", points: 90 },
+        { id: 65, name: "Bassam Ahmad", email: "bassam.ahmad@example.com", points: 78 },
+        { id: 66, name: "Ritaj Hassan", email: "ritaj.hassan@example.com", points: 85 },
+        { id: 67, name: "Iyad Ali", email: "iyad.ali@example.com", points: 92 },
+        { id: 68, name: "Maya Khalil", email: "maya.khalil@example.com", points: 88 },
+        { id: 69, name: "Nour Omar", email: "nour.omar@example.com", points: 73 },
+        { id: 70, name: "Sultan Nasser", email: "sultan.nasser@example.com", points: 96 },
+        { id: 71, name: "Hiba Ahmad", email: "hiba.ahmad@example.com", points: 79 },
+        { id: 72, name: "Rami Hassan", email: "rami.hassan@example.com", points: 84 },
+        { id: 73, name: "Jumanah Saleh", email: "jumanah.saleh@example.com", points: 91 },
+        { id: 74, name: "Amjad Khaled", email: "amjad.khaled@example.com", points: 68 },
+        { id: 75, name: "Sama Ali", email: "sama.ali@example.com", points: 87 },
+        { id: 76, name: "Firas Omar", email: "firas.omar@example.com", points: 82 },
+        { id: 77, name: "Lina Nasser", email: "lina.nasser@example.com", points: 95 },
+        { id: 78, name: "Adel Ahmad", email: "adel.ahmad@example.com", points: 76 },
+        { id: 79, name: "Sahar Hassan", email: "sahar.hassan@example.com", points: 89 },
+        { id: 80, name: "Khalil Saleh", email: "khalil.saleh@example.com", points: 80 },
+        { id: 81, name: "Rawan Khaled", email: "rawan.khaled@example.com", points: 93 },
+        { id: 82, name: "Mazen Ali", email: "mazen.ali@example.com", points: 71 },
+        { id: 83, name: "Aseel Omar", email: "aseel.omar@example.com", points: 86 },
+        { id: 84, name: "Nasser Ahmad", email: "nasser.ahmad@example.com", points: 90 },
+        { id: 85, name: "Jana Hassan", email: "jana.hassan@example.com", points: 77 },
+        { id: 86, name: "Wissam Saleh", email: "wissam.saleh@example.com", points: 84 },
+        { id: 87, name: "Mira Khaled", email: "mira.khaled@example.com", points: 97 },
+        { id: 88, name: "Rashed Ali", email: "rashed.ali@example.com", points: 75 },
+        { id: 89, name: "Nouran Omar", email: "nouran.omar@example.com", points: 88 },
+        { id: 90, name: "Sami Nasser", email: "sami.nasser@example.com", points: 81 },
+        { id: 91, name: "Lama Ahmad", email: "lama.ahmad@example.com", points: 92 },
+        { id: 92, name: "Khaled Hassan", email: "khaled.hassan@example.com", points: 79 },
+        { id: 93, name: "Rama Saleh", email: "rama.saleh@example.com", points: 94 },
+        { id: 94, name: "Fadi Khalil", email: "fadi.khalil@example.com", points: 70 },
+        { id: 95, name: "Aya Omar", email: "aya.omar@example.com", points: 85 },
+        { id: 96, name: "Yousef Ahmad", email: "yousef.ahmad@example.com", points: 91 },
+        { id: 97, name: "Hala Hassan", email: "hala.hassan@example.com", points: 83 },
+        { id: 98, name: "Omar Saleh", email: "omar.saleh@example.com", points: 96 },
+        { id: 99, name: "Dana Khaled", email: "dana.khaled@example.com", points: 78 },
+        { id: 100, name: "Adam Ahmad", email: "adam.ahmad@example.com", points: 89 }
+    ];
+    
+
+// var result=" ";
+//      for(var index=0;index<students.length;index++)
+//         {
+//               result+=`<tr>
+//               <td>${students[index].id}</td>
+//               <td>${students[index].name}</td>
+//               <td>${students[index].email}</td>
+//               <td>${students[index].points}</td>
+//               </tr>`
+//         }
+
+        const result=students.map(function(students)
+        {
+                return`<tr>
+                           <td>${students.id}</td>
+                           <td>${students.name}</td>
+                           <td>${students.email}</td>
+                          <td>${students.points}</td>
+                      </tr>`
+        }).join('');
+        
+        document.querySelector(".tablebody").innerHTML=result;
