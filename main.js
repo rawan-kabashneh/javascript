@@ -2,7 +2,8 @@ const dataproduct=document.querySelector("[data-product]");
 const datacategories=document.querySelector("[data-categories]");
 
 function getcategories(){
-const xhr=new XMLHttpRequest();
+return new Promise((resolve,reject)=>{ 
+    const xhr=new XMLHttpRequest();
 xhr.open("GET","https://dummyjson.com/products/categories");
 xhr.send();
 
@@ -25,9 +26,15 @@ xhr.addEventListener("readystatechange",()=>{
                         <td> ${categorie.url}  </td>
                         
                         </tr>`}).join('');
-                        datacategories.innerHTML+=result; }
+                        datacategories.innerHTML+=result; 
+                    resolve (result);}
+                    else {
+                        
+                        reject("Failed to fetch categories");
+                    }
 
         }
+})
 })
 }
 
@@ -35,6 +42,9 @@ xhr.addEventListener("readystatechange",()=>{
 
 function getproducts()
 {
+   return new Promise((resolve,reject)=>
+    {
+    
     const xhr=new XMLHttpRequest();
     xhr.open("GET","https://dummyjson.com/products");
     xhr.send();
@@ -46,6 +56,7 @@ function getproducts()
                     if(xhr.status==200)
                         {
                             {
+                                console.log('wait');
                                 const data=JSON.parse(xhr.responseText);
                                 const products=data.products;
                                 console.log(products)
@@ -69,13 +80,25 @@ function getproducts()
                                  <td> ${product.price} </h1>
                                 </tr>
                                  `}).join('');
-                                dataproduct.innerHTML+=result; }
+                                dataproduct.innerHTML+=result; 
+                            resolve(products);
+                            }
+                            
             
                       
                 }
+                else {
+                               
+                                reject("Failed to fetch products");
+                            }
         }
-    })
+    })}
+)}
+
+async function getdata() {
+    
+await getproducts();
+getcategories();
 }
 
- getproducts();
-getcategories();
+getdata();
