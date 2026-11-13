@@ -77,5 +77,5 @@ function getproducts()
     })
 }
 
-await getproducts();
+ getproducts();
 getcategories();
