@@ -1,5 +1,5 @@
-.table, tr,td
+table,tr,td,th
 {
-   border:solid orangered 1px;
-   
+   border:solid rgb(71, 31, 17) 1px;
+   margin-bottom: 10px;   
 }
