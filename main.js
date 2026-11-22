@@ -1,104 +1,79 @@
 const dataproduct=document.querySelector("[data-product]");
-const datacategories=document.querySelector("[data-categories]");
+const datacategories=document.querySelector("[data-categories-ul]");
 
-function getcategories(){
-return new Promise((resolve,reject)=>{ 
-    const xhr=new XMLHttpRequest();
-xhr.open("GET","https://dummyjson.com/products/categories");
-xhr.send();
+console.log(datacategories);
 
-xhr.addEventListener("readystatechange",()=>{
-    if(xhr.readyState==4)
-        {
-            if(xhr.status==200)
-                {
-                    const categories=JSON.parse(xhr.responseText);
-                    datacategories.innerHTML=`<tr>
-                    <th>slug</th>
-                     <th>name</th>
-                      <th>url</th>
-                    </tr>
-                    `;
-                    const result=categories.map(categorie=>{return `
-                      <tr>
-                        <td>  ${categorie.slug}  </td>
-                        <td> ${categorie.name}  </td>
-                        <td> ${categorie.url}  </td>
-                        
-                        </tr>`}).join('');
-                        datacategories.innerHTML+=result; 
-                    resolve (result);}
-                    else {
-                        
-                        reject("Failed to fetch categories");
-                    }
-
-        }
-})
-})
-}
-
-
-
-function getproducts()
+async function getcategories()
 {
-   return new Promise((resolve,reject)=>
-    {
-    
-    const xhr=new XMLHttpRequest();
-    xhr.open("GET","https://dummyjson.com/products");
-    xhr.send();
+    const respond=await axios.get("https://dummyjson.com/products/categories");
+    return respond;
 
-    xhr.addEventListener("readystatechange",()=>
-        {
-            if(xhr.readyState==4)
-                {
-                    if(xhr.status==200)
-                        {
-                            {
-                                console.log('wait');
-                                const data=JSON.parse(xhr.responseText);
-                                const products=data.products;
-                                console.log(products)
-
-                                dataproduct.innerHTML=`  <tr>
-                                <th>id</th>
-                                <th> title </th>         
-                                 <th> description </th>         
-                                 <th> price </th>                                 
-                                </tr>`
-                                
-                          const result=products.map(product=>
-                            {
-                                return `
-                               
-                                
-                                <tr>
-                                 <td> ${product.id} </h1>
-                                 <td> ${product.title} </h1>
-                                 <td> ${product.description} </h1>
-                                 <td> ${product.price} </h1>
-                                </tr>
-                                 `}).join('');
-                                dataproduct.innerHTML+=result; 
-                            resolve(products);
-                            }
-                            
-            
-                      
-                }
-                else {
-                               
-                                reject("Failed to fetch products");
-                            }
-        }
-    })}
-)}
-
-async function getdata() {
-    
-await getproducts();
-getcategories();
 }
 
-getdata();
+const displaycategories=async ()=> {
+       
+    try{
+    const {data}=await getcategories();
+        console.log(data);
+
+        const result =data.map((category)=>{
+               return`<li><button type="button">${category.name}</button></li>`
+
+            }).join("");
+           
+            console.log("hi")
+            datacategories.innerHTML=result;}
+            catch(error)
+            {
+                datacategories.textContent=error;
+            }
+
+    }
+
+    displaycategories();
+
+
+
+    async function getproducts() {
+        const respond=await axios.get("https://dummyjson.com/products");
+       console.log(respond);
+        return respond;
+    }
+
+    const displayproducts= async()=>
+        {
+         try{
+         const {data} =await getproducts();
+           console.log(data.products);
+           
+         const result=data.products.map((product)=>
+            {
+           return `<div class="products">
+           <a href="./details.html?id=${product.id}"> 
+            
+               <img src=${product.thumbnail} class="width:100px">
+               <h3>${product.title}</h1>
+               <p>${product.description}</p>
+                <div class="ps">
+                    <h3>${product.rating}</h2>
+                     <h3>${product.price}</h2>
+                </div>
+                <button type="button"  class="cart">add to card</button>
+            </a>
+           </div>
+            `
+
+            }).join('');
+            console.log(data.result);
+
+         dataproduct.innerHTML=result;}
+         
+         catch(error)
+         {
+            dataproduct.textContent=error;
+         }
+
+
+        }
+
+        displayproducts();
